@@ -5,7 +5,7 @@ n, m = map(int, input().split())
 
 #입력 받기
 board = []
-dx = [1, 0, -1, 0]
+dx = [1, 0, -1, 0] #방향을 나타내는 좌표
 dy = [0, 1, 0, -1]
 
 for _ in range(n):
@@ -26,7 +26,8 @@ def virus(tmp, x, y):
             if tmp[nx][ny] == 0:
                 tmp[nx][ny] = 2
                 que.append((nx, ny))
-        
+
+#안전 영역의 크기를 계산하는 함수
 def num_of_zero(tmp):
     zeroCnt = 0
     for i in range(n):
@@ -36,7 +37,7 @@ def num_of_zero(tmp):
     return zeroCnt
 
 
-#과정 -> 울타리 3개를 보드에 어떻게 배치할지 고민을 했었는데 dfs방식을 사용
+#과정 -> 울타리 3개를 보드에 배치하는 경우는 dfs방식을 사용
 def dfs(cnt):
     global result
     if cnt == 3:
