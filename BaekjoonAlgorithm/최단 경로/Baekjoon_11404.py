@@ -13,11 +13,8 @@ for a in range(1, n + 1):
 for _ in range(m):
     #A에서 B로 가는 비용은 C라고 설정
     a, b, c = map(int, input().split())
-    if graph[a][b] == INF:
-        graph[a][b] = c # a에서 b로 가는 비용은 c
-    else:
-        if c < graph[a][b]:
-            graph[a][b] = c
+    if c < graph[a][b]:
+        graph[a][b] = c
         
 for k in range(1, n + 1):
     for a in range(1, n + 1):
