@@ -65,7 +65,7 @@ def possible_move_for_shark(board, shark_x, shark_y):
 # 이동 가능한 상어의 모든 위치를 하나하나 살펴봐서 그 최댓값을 반환하기 -> 이것을 dfs방식을 사용해서 찾아낸다.
 def dfs_for_shark_move(board, cur_x, cur_y, total):
     global result
-    board = copy.deepcopy(board) # 재귀 호출시 각 재귀 호출된 함수들이ㅑ 독립적으로 board를 사용하기 위해서 deepcopy사용
+    board = copy.deepcopy(board) # 재귀 호출시 각 재귀 호출된 함수들이 독립적으로 board를 사용하기 위해서 deepcopy사용
 
     # 현재 좌표에서 물고기를 먹었으므로 total에 물고기 번호를 더해준다. 이러면 물고기를 먹은 상태이다.
     total += board[cur_x][cur_y][0]
@@ -101,7 +101,7 @@ if __name__ == '__main__':
     for i in range(4):
         data = list(map(int, input().split()))
         for j in range(4):
-            # (물고기 번호, 물고기 방향 정보)를 튜플 형힉으로 저장하기 그리고 dx, dy인덱스에 맞춰주기 위해서 방향 정보에 -1을 해주기
+            # (물고기 번호, 물고기 방향 정보)를 튜플 형식으로 저장하기 그리고 dx, dy인덱스에 맞춰주기 위해서 방향 정보에 -1을 해주기
             board[i][j] = [data[j * 2], data[j * 2 + 1] - 1]
     
     # 과정
