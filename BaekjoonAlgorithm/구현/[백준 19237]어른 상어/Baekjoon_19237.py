@@ -77,8 +77,7 @@ if __name__ == "__main__":
     for i in range(n):
         for j in range(n):
             if board[i][j] != 0:
-                shark_info_for_smell[i][j][0] = board[i][j]
-                shark_info_for_smell[i][j][1] = k
+                shark_info_for_smell[i][j] = [board[i][j], k]
     
     # 각 상어들이 현재 바라보고 있는 방향을 담기 (리스트) -> 이동후 상어들이 바라보고 있는 방향을 수시로 업데이트 해줘야 한다.
     look_direction = list(map(int, input().split()))
