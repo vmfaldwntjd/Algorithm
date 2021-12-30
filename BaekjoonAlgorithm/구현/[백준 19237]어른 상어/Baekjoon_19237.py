@@ -1,3 +1,4 @@
+# 모든 상어가 이동한 후의 보드를 반환하는 함수 
 def move_shark(board, priority_move, look_direction, shark_info_for_smell, dx, dy):
     n = len(board)
     new_board = [[0] * n for _ in range(n)]
