@@ -11,7 +11,7 @@ if __name__ == '__main__':
     lesson_time.sort()
 
     room = [] #방 리스트의 길이를 결과로 출력을 할 것이다.
-    #첫 번째 회의의 끝나는 시간을 큐에 삽입
+    #첫 번째 수업의 끝나는 시간을 큐에 삽입
     heapq.heappush(room, lesson_time[0][1])
     
     for i in range(1, n):
