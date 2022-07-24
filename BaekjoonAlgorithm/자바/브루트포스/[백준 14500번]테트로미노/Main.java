@@ -106,33 +106,25 @@ public class Main {
         int[][] board = new int[n][m];
         int[][] board_tmp;
         int result = 0;
-
+        int value;
         for (int i = 0; i < n; ++i) {
             board[i] = Arrays.stream(br.readLine().split(" ")).mapToInt(Integer::parseInt).toArray();
         }
-        //보드판을 90도씩 3번 회전시킬 것
-        for (int k = 0; k < 4; ++k) {
-            if (k == 0) {
-                if (result < getMax(board, n, m)) {
-                    result = getMax(board, n, m);
-                }
-            } else if (k == 1) {
-                board_tmp = rotate90(board, n, m);
-                if (result < getMax(board_tmp, m, n)) {
-                    result = getMax(board_tmp, m, n);
-                }
-            } else if (k == 2) {
-                board_tmp = rotate180(board, n, m);
-                if (result < getMax(board_tmp, n, m)) {
-                    result = getMax(board_tmp, n, m);
-                }
-            } else if (k == 3) {
-                board_tmp = rotate270(board, n, m);
-                if (result < getMax(board_tmp, m, n)) {
-                    result = getMax(board_tmp, m, n);
-                }
-            }
-        }
+        value = getMax(board, n, m);
+        if (result < value)
+            result = value;
+        board_tmp = rotate90(board, n, m);
+        value = getMax(board_tmp, m, n);
+        if (result < value)
+            result = value;
+        board_tmp = rotate180(board, n, m);
+        value = getMax(board_tmp, n, m);
+        if (result < value)
+            result = value;
+        board_tmp = rotate270(board, n, m);
+        value = getMax(board_tmp, m, n);
+        if (result < value)
+            result = value;
         bw.write(result + "\n");
         bw.flush();
     }
