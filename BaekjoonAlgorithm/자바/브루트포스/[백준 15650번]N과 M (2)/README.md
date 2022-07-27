@@ -7,7 +7,7 @@
 - 재귀함수의 코드와 주석으로 설명을 첨부하겠다.  
 ```JAVA
 public static void print(int idx, int start, int[] arr, boolean[] check, int n, int m) throws IOException {
-        if (idx >= m) {
+        if (idx >= m) { //idx가 m에 도달하면 인덱스 0부터 m - 1까지의 arr 수열 내용을 모두 출력을 한다. 
             BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
             for (int i = 0; i < m; ++i) {
                 bw.write(arr[i] + " ");
@@ -17,12 +17,12 @@ public static void print(int idx, int start, int[] arr, boolean[] check, int n, 
             return;
         }
         for (int i = start; i <= n; ++i) {
-            if (check[i] == false) {
-                arr[idx] = i;
-                check[i] = true;
-                print(idx + 1, i + 1, arr, check, n, m);
-                check[i] = false;
-                arr[idx] = 0;
+            if (check[i] == false) { //이미 arr에 특정 숫자 i가 담겨져 있지 않다면  
+                arr[idx] = i; //arr의 idx자리에 특정 수 i를 넣어준다.  
+                check[i] = true; //i가 arr에 담겨져 있으므로 i는 담겨져 있다고 check배열에 표시흘 한다.  
+                print(idx + 1, i + 1, arr, check, n, m); //idx와 i를 각각 하나씩 올려가며 재귀호출을 진행  
+                check[i] = false; //배열을 다 출력했으면 check자리에 i를 다시 false로 돌려 새로운 수열을 만들 수 있도록 해준다.  
+                arr[idx] = 0; //수열의 특정 자리에 있는 숫자도 초기화  
             }
         }
     }
