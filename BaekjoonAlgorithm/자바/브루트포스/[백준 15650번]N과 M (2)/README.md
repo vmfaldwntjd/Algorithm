@@ -68,3 +68,7 @@ public static void print(int[] arr, int num, int selected, int n, int m) throws 
         print(arr, num + 1, selected, n, m); //숫자를 아직 선택하지 않았으므로 selected는 그대로 놔두고 num만 업데이트 해서 재귀호출을 한다.  
     }
 ```
+  -> arr은 특정 수열을 출력하기 위한 자연수를 담을 배열이다.  
+  -> selected는 arr의 특정 위치를 가리킨다. 특정 위치에 숫자가 들어가면 선택된 것이므로 selected를 업데이트 해줘야 한다.  
+  -> num은 arr에 들어갈 숫자를 말한다.  
+  
