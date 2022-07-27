@@ -39,5 +39,5 @@ public static void print(int idx, int start, int[] arr, boolean[] check, int n, 
   -> 이런 경우의 수를 따져 보면 N X (N - 1) X (N - 2) X 1가지의 경우를 모두 돌아봐야 한다.  
   -> 즉 시간 복잡도는 O(N!)이라고 할 수가 있다.  
   -> 또한 M의 최댓값은 N개가 될 수 있기 때문에 N개 중에 N을 고르는 경우의 수라고 생각하면 된다.  
-  - - -
+- - -
 ## 두 번째 방법
