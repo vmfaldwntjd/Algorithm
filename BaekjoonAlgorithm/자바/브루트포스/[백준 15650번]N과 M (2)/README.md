@@ -1,7 +1,7 @@
 문제 링크: https://www.acmicpc.net/problem/15650
 - - -
 # 고찰 및 해결 과정
-## 첫 번째 방법  
+## 첫 번째 방법(Main.java)  
 - 이 문제는 1부터 N까지의 자연수 중 M개를 선택해서 중복없이 오름차순으로 숫자를 고르는 방법이다.  
 - 즉 이 문제는 조합의 문제이다.  
 - 나는 이 문제를 재귀함수를 써서 문제를 해결하였다.    
@@ -40,4 +40,31 @@ public static void print(int idx, int start, int[] arr, boolean[] check, int n, 
   -> 즉 시간 복잡도는 O(N!)이라고 할 수가 있다.  
   -> 또한 M의 최댓값은 N개가 될 수 있기 때문에 N개 중에 N을 고르는 경우의 수라고 생각하면 된다.  
 - - -
-## 두 번째 방법
+## 두 번째 방법(Main2.java)
+- 앞의 예보다 좀 더 빠른 경우이다.  
+- 예를 들어서 N이 4인 경우를 생각해보자.  
+- 그럼 각각 1, 2, 3, 4에서 이 수들 중에서 각각 하나를 선택하고 안 한 경우를 생각을 해보자.  
+- 그러면 나올 수 있는 경우의 수는 2^4가지가 되므로 **시간 복잡도는 O(2^N)으로 앞의 경우보다 빠르다는 것을 알 수가 있다**.  
+- 코드로 설명을 하겠다.  
+```JAVA
+public static void print(int[] arr, int num, int selected, int n, int m) throws IOException {
+        if (selected == m) {
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+            for (int i = 0; i < m; ++i) {
+                bw.write(arr[i] + " ");
+            }
+            bw.write("\n");
+            bw.flush();
+            return;
+        }
+
+        if (num > n) //숫자를 모두 선택하지 않았을 경우 num이 N을 넘어가는 경우가 생기므로 예외처리를 해준다.  
+            return;
+        //숫자를 선택한 경우의 재귀 호출
+        arr[selected] = num;
+        print(arr, num + 1, selected + 1, n, m); //숫자를 선택했으므로 num과 selected를 모두 1증가하여 재귀 호출을 진행한다.  
+        //숫자를 선택하지 않은 경우의 재귀 호출
+        arr[selected] = 0;
+        print(arr, num + 1, selected, n, m); //숫자를 아직 선택하지 않았으므로 selected는 그대로 놔두고 num만 업데이트 해서 재귀호출을 한다.  
+    }
+```
