@@ -3,7 +3,7 @@ import java.io.*;
 
 public class Main {
 
-    public static StringBuilder print(int[] arr, int[] input, boolean[] check, int idx, int n, int m) {
+    public static StringBuilder print(int[] arr, int[] input, int idx, int n, int m) {
         if (idx >= m) {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < m; ++i) {
@@ -18,10 +18,8 @@ public class Main {
         StringBuilder result = new StringBuilder();
         for (int i = 0; i < n; ++i) {
             arr[idx] = input[i];
-            check[input[i]] = true;
-            result.append(print(arr, input, check, idx + 1, n, m));
+            result.append(print(arr, input, idx + 1, n, m));
             arr[idx] = 0;
-            check[input[i]] = false;
         }
         return result;
     }
@@ -35,12 +33,11 @@ public class Main {
         int m = Integer.parseInt(st.nextToken());
         int[] arr = new int[8];
         int[] input = new int[8];
-        boolean[] check = new boolean[10001];
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; ++i)
             input[i] = Integer.parseInt(st.nextToken());
         Arrays.sort(input, 0, n);
-        bw.write(print(arr, input, check, 0, n, m) + "\n");
+        bw.write(print(arr, input, 0, n, m) + "\n");
         bw.flush();
     }
 }
