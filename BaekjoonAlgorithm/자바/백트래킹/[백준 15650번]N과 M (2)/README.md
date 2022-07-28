@@ -36,6 +36,7 @@ public static void print(int idx, int start, int[] arr, boolean[] check, int n, 
      .
      .
   ```
+  -> print에서 처음에 idx는 0으로 시작하고 start는 1로 시작한다.  
   -> 이런 경우의 수를 따져 보면 N X (N - 1) X (N - 2) X 1가지의 경우를 모두 돌아봐야 한다.  
   -> 즉 시간 복잡도는 O(N!)이라고 할 수가 있다.  
   -> 또한 M의 최댓값은 N개가 될 수 있기 때문에 N개 중에 N을 고르는 경우의 수라고 생각하면 된다.  
@@ -68,6 +69,7 @@ public static void print(int[] arr, int num, int selected, int n, int m) throws 
         print(arr, num + 1, selected, n, m); //숫자를 아직 선택하지 않았으므로 selected는 그대로 놔두고 num만 업데이트 해서 재귀호출을 한다.  
     }
 ```
+  -> 처음에 num은 1로 시작하고, selected는 0부터 시작을 한다.  
   -> arr은 특정 수열을 출력하기 위한 자연수를 담을 배열이다.  
   -> selected는 arr의 특정 위치를 가리킨다. 특정 위치에 숫자가 들어가면 선택된 것이므로 selected를 업데이트 해줘야 한다.  
   -> num은 arr에 들어갈 숫자를 말한다.  
