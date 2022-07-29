@@ -9,6 +9,7 @@
   3. 중복에 의해서 몇 개의 똑같은 수열들이 나올 것이다.  
   4. 그러면 나올 수 있는 수열의 모든 경우의 수를 담을 큰 공간을 마련하고 이 중에서 중복을 제거하는 작업을 시작한다.  
 - 코드를 통해서 설명을 하겠다. 나는 나올 수 있는 모든 경우의 수열을 담을 공간의 class를 하나 더 생성하였다.  
+  -> 참고로 코드에 있는 arr, input, check, d는 전역 변수로 지정을 해주었다.  
   #### 메인 함수의 내용
   ```JAVA
    public static void main(String args[]) throws IOException {
@@ -38,3 +39,27 @@
         bw.flush();
     }
   ```
+  #### 재귀 함수 seq 내용
+  ```JAVA
+  public static void seq(int idx, int n, int m) {
+        if (idx >= m) { //만약 보고 있는 자리 idx가 m과 같다면 수열을 담아야 한다.  
+            ArrayList<Integer> temp = new ArrayList<>(); //정수형 리스트를 하나 만들어준다. 
+            for (int i = 0; i < m; ++i)
+                temp.add(input[arr[i]]); //정수형 리스트의 수열의 내용을 담는다. 
+            d.add(new Result(temp)); //만든 수열의 결과를 수열들을 담을 공간 d에 담아준다. 
+            return;
+        }
+
+        for (int i = 0; i < n; ++i) { //재귀 호출 사용
+            if (check[i] == false) { // 수열의 값들의 중복을 방지하기 위해서 check를 사용 check[i]가 false이면 num[arr[idx]]를 아직 살펴보지 않았다.  
+                arr[idx] = i;
+                check[i] = true;
+                seq(idx + 1, n, m);
+                arr[idx] = 0;
+                check[i] = false; //참고하고 수열까지 잘 담았으므로 다시 false 처리를 해준다.  
+            }
+        }
+    }
+  ```
+
+  
