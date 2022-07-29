@@ -1,7 +1,7 @@
 import java.io.*;
 import java.util.*;
 
-public class Main {
+public class Main2 {
 
     static int[] arr = new int[9];
     static int[] num = new int[9];
