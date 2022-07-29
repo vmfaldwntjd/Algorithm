@@ -39,6 +39,7 @@
         bw.flush();
     }
   ```
+
   #### 재귀 함수 seq 내용
   ```JAVA
   public static void seq(int idx, int n, int m) {
@@ -62,4 +63,44 @@
     }
   ```
 
-  
+  #### class Result 내용
+    ```JAVA
+    class Result implements Comparable<Result> {
+
+    Integer[] a;
+
+    Result(ArrayList<Integer> a) { //생성자를 통해서 Integer[] 타입의 배열 a를 만들어준다. 
+        this.a = a.toArray(new Integer[a.size()]);
+    }
+
+    @Override
+    public boolean equals(Object obj) { //수열의 내용이 같은지 다른지 비교하는 함수
+        if (obj instanceof Result) {
+            Result that = (Result)obj;
+            int n = this.a.length;
+            for (int i = 0; i < n; ++i)
+                if (this.a[i] != that.a[i])
+                    return false;
+            return true;
+        } else
+            return false;
+    }
+
+    public int get(int idx) { //수열의 위치 idx에서의 값을 반환해주는 메서드
+        return (int)this.a[idx];
+    }
+
+    public int compareTo(Result that) { //이 메서드는 Comparable<Result>에 의해서 반드시 있어야 하는 메서드이다. 이것은 수열의 내용들을 기준으로 수열을 오름차순으로 정렬할지 내림차순으로 정렬할지 결정한다.
+        int n = this.a.length;
+        for (int i = 0; i < n; ++i) {
+            if (this.a[i] == that.a[i])
+                continue;
+            if (this.a[i] < that.a[i]) //내림차순 처리
+                return -1;
+            if (this.a[i] > that.a[i]) //오름차순 처리
+                return 1;
+        }
+        return 0;
+    }
+}
+    ```
