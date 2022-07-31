@@ -71,7 +71,6 @@ public class Main {
         st = new StringTokenizer(br.readLine());
         for (int i = 0; i < n; ++i)
             input[i] = Integer.parseInt(st.nextToken());
-        Arrays.sort(input, 0, n);
         seq(0, 0, n, m);
         Collections.sort(d);
         for (int i = 0; i < d.size(); ++i) {
