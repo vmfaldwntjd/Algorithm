@@ -1,14 +1,12 @@
 import java.io.*;
 import java.util.*;
 
-public class Main2 {
+public class Main {
 
-    static int[] arr = new int[16];
-
-    public static boolean check(StringBuilder sb) {
+    public static boolean check(String password) {
         int consonant = 0;
         int vowel = 0;
-        for (char c : sb.toString().toCharArray()) {
+        for (char c : password.toCharArray()) {
             switch (c) {
                 case 'a':
                 case 'e':
@@ -23,35 +21,27 @@ public class Main2 {
         }
         return vowel >= 1 && consonant >= 2;
     }
-    public static StringBuilder print(String[] input, int m, String password, int idx) {
-        if (password.length() >= m) {
-            StringBuilder sb = new StringBuilder();
-            sb.append(password);
-            if (check(sb)) {
-                sb.append("\n");
-                return sb;
-            } else {
-                sb.delete(0, password.length());
-                return sb;
-            }
+    public static void print(String[] input, String password, int idx, int c, int l) throws IOException {
+        if (password.length() >= l) {
+            BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
+            if (check(password))
+                bw.write(password + "\n");
+            bw.flush();
+            return;
         }
-        StringBuilder result = new StringBuilder();
         if (idx >= input.length)
-            return result;
-        result.append(print(input, m, password + input[idx], idx + 1));
-        result.append(print(input, m, password, idx + 1));
-        return result;
+            return;
+        print(input, password + input[idx], idx + 1, c, l);
+        print(input, password, idx + 1, c, l);
     }
 
     public static void main(String[] args) throws IOException {
-        BufferedWriter bw = new BufferedWriter(new OutputStreamWriter(System.out));
         BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
         StringTokenizer st = new StringTokenizer(br.readLine());
         int l = Integer.parseInt(st.nextToken());
         int c = Integer.parseInt(st.nextToken());
         String[] input = br.readLine().split(" ");
         Arrays.sort(input);
-        bw.write(print(input, l, "", 0) + "\n");
-        bw.flush();
+        print(input, "", 0, c, l);
     }
 }
