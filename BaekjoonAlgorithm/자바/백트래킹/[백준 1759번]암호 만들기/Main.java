@@ -4,7 +4,7 @@ import java.util.*;
 public class Main {
 
     static int[] arr = new int[16];
-    public static boolean isValid(StringBuilder sb) {
+    public static boolean check(StringBuilder sb) {
         int consonant = 0;
         int vowel = 0;
         for (char c : sb.toString().toCharArray()) {
@@ -20,23 +20,19 @@ public class Main {
                     ++consonant;
             }
         }
-        if (vowel >= 1 && consonant >= 2)
-            return true;
-        else
-            return false;
+        return vowel >= 1 && consonant >= 2;
     }
+
     public static StringBuilder print(String[] input, int idx, int start, int n, int m) {
         if (idx >= m) {
             StringBuilder sb = new StringBuilder();
             for (int i = 0; i < m; ++i)
                 sb.append(input[arr[i]]);
-            if (isValid(sb)) {
+            if (check(sb)) {
                 sb.append("\n");
                 return sb;
-            } else {
-                sb.delete(0, m + 1);
-                return sb;
-            }
+            } else
+                return new StringBuilder();
         }
         StringBuilder result = new StringBuilder();
         for (int i = start; i < n; ++i) {
