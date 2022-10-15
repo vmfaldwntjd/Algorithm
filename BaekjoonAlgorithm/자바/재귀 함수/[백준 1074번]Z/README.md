@@ -4,8 +4,8 @@
 - 큰 틀로 사고의 방향을 잡아서 문제를 해결하려고 노력하였다. 그렇지만 시간적으로도 오래 걸렸다.  
 - 사고의 큰 틀을 설명하자면 다음과 같다.  
     - 먼저 다음과 같은 사각형을 살펴보자.  
-        ![Screen Shot 2022-10-15 at 6.55.55 PM.png](https://s3-us-west-2.amazonaws.com/secure.notion-static.com/2460265b-ef3f-4f45-9bee-536ae7438b46/Screen_Shot_2022-10-15_at_6.55.55_PM.png)
-        
+        <img width="445" alt="Screen Shot 2022-10-15 at 7 13 08 PM" src="https://user-images.githubusercontent.com/75198221/195980938-e629dbd8-6bd1-4090-b4e0-b6311f21ab1c.png">
+
     - 이 큰 사각형은 길이가 4이므로 문제에서 n의 값은 2(2^2 x 2^2)인 상황임을 알 수가 있다.  
     - 큰 사각형의 가로와 세로의 길이의 절반을 나눈 4개의 큰 영역을 살펴보자.  
         - (0, 1, 2, 3), (4, 5, 6, 7), (8, 9, 10, 11), (12, 13, 14, 15)  
