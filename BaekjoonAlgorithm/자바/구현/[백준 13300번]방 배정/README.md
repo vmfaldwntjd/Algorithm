@@ -1,7 +1,3 @@
-문제 링크: https://www.acmicpc.net/problem/13300
+- 문제 링크: https://www.acmicpc.net/problem/13300
 - - -
-# 고찰 및 해결 과정
-- 배열의 방법으로 문제를 해결.
-- 특정 학년 및 특정 성별의 학생 수의 정보를 담을 배열 grade를 생성.
-  -> 예를 들어서 1학년의 성별이 여자인 학생이 한 명이 있다고 하면 grade[1][0] = 1이다.
-- 1학년부터 6학년까지 각 성별 당 학생 수의 정보를 grade에 다 담아준 다음 grade배열을 살피면서 방의 수를 계산.(계산 과정은 코드 참조)  
+- 문제 설명 링크: https://pacific-orangutan-c65.notion.site/13300-6ee456be430245b3b08f0cb95170b23b
