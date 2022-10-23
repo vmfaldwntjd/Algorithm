@@ -1,0 +1,3 @@
+- 문제 링크: https://www.acmicpc.net/problem/1406
+- - -
+- 문제 설명 링크: 
