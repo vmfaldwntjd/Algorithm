@@ -1,0 +1,3 @@
+- 문제 링크: https://www.acmicpc.net/problem/1267
+- - -
+- 문제 해결 과정 링크: https://pacific-orangutan-c65.notion.site/1267-e99e23f456284c5eb00896ef4e6f63c5
